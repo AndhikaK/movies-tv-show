@@ -32,8 +32,8 @@
   </div>
   <div class="py-12">
     <div class="text-center">
-      <div v-if="store.isWatchListExist(movie) < 0" @click="store.addToWatchList(movie)" class="inline-block p-2 py-2 text-sm text-slate-900 rounded-md bg-slate-200 self-center">Add to watchlist</div>
-      <div v-if="store.isWatchListExist(movie) > -1" @click="store.removeWatchList(movie)" class="inline-block p-2 py-2 text-sm  rounded-md self-center text-white bg-red-600">Added</div>
+      <div v-if="store.isWatchListExist(movie, 'movie') < 0" @click="store.addToWatchList(movie, 'movie')" class="inline-block p-2 py-2 text-sm text-slate-900 rounded-md bg-slate-200 self-center">Add to watchlist</div>
+      <div v-if="store.isWatchListExist(movie, 'movie') > -1" @click="store.removeWatchList(movie, 'movie')" class="inline-block p-2 py-2 text-sm  rounded-md self-center text-white bg-red-600">Added</div>
     </div>
   </div>
 

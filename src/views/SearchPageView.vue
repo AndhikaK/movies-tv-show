@@ -43,14 +43,9 @@ export default {
     },
   },
   mounted() {
-    if (!this.store.search.query === "") {
-      this.updateMovie(this.store.search.query);
-    }
-  },
-  activated() {
-    if (!this.store.search.query === "") {
-      this.updateMovie(this.store.search.query);
-    }
+    // if (!this.store.search.query === "") {
+    this.updateMovie(this.store.search.query);
+    // }
   },
   methods: {
     updateMovie(query) {

@@ -6,16 +6,19 @@
         <i @click="store.toggleWatchList()" class='bx bx-x ml-2 text-3xl text-slate-400 hover:text-slate-200 rounded-full'></i>
       </div>
       <div class="max-h-[400px] grid border-t border-t-slate-700 overflow-y-auto">
-        <div v-if="getWatchListLength() > 0">
-          <div class="mb-5">
-            <div v-for="item in store.watchList.list" class="px-5 py-3 grid grid-cols-[1fr_auto] content-center border-t border-t-slate-700 hover:bg-slate-700/20">
-              <div>{{item.title}}</div>
-              <i @click="removeWatchList(item)" class='bx bx-x ml-2 text-3xl text-slate-400 hover:text-slate-200 rounded-full'></i>
-            </div>
+        <div class="mb-5">
+          <div class="px-5 mt-5 font-bold text-lg text-red-600">Movies {{getWatchListMovieLength()}}</div>
+          <div v-for="item in store.watchList.list.movie" class="px-5 py-3 grid grid-cols-[1fr_auto] content-center border-t border-t-slate-700 hover:bg-slate-700/20">
+            <div>{{item.title}}</div>
+            <i @click="removeWatchList(item, 'movie')" class='bx bx-x ml-2 text-3xl text-slate-400 hover:text-slate-200 rounded-full'></i>
           </div>
         </div>
-        <div v-else>
-          <div class="py-10 px-5 text-center">You don't have any watch list</div>
+        <div class="mb-5">
+          <div class="px-5 font-bold text-lg text-red-600">Tv Shows {{getWatchListTvLength()}}</div>
+          <div v-for="item in store.watchList.list.tv" class="px-5 py-3 grid grid-cols-[1fr_auto] content-center border-t border-t-slate-700 hover:bg-slate-700/20">
+            <div>{{item.name}}</div>
+            <i @click="removeWatchList(item, 'tv')" class='bx bx-x ml-2 text-3xl text-slate-400 hover:text-slate-200 rounded-full'></i>
+          </div>
         </div>
       </div>
     </div>
@@ -33,11 +36,14 @@ export default {
     };
   },
   methods: {
-    getWatchListLength() {
-      return this.store.watchList.list.length;
+    getWatchListMovieLength() {
+      return this.store.watchList.list.movie.length;
     },
-    removeWatchList(movie) {
-      this.store.removeWatchList(movie);
+    getWatchListTvLength() {
+      return this.store.watchList.list.tv.length;
+    },
+    removeWatchList(movie, type = "movie") {
+      this.store.removeWatchList(movie, type);
     },
   },
 };

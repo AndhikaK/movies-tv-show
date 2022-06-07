@@ -1,9 +1,10 @@
 
 <template>
-  <div class="relative">
+  <div class="relative ">
     <Navbar />
     <SearchBox />
     <WatchList />
+    <ModalMenu />
     <router-view></router-view>
     <Footer />
 
@@ -15,6 +16,7 @@
 import HomeView from "./views/HomeView.vue";
 import Navbar from "./components/Navbar.vue";
 import SearchBox from "./components/SearchBox.vue";
+import ModalMenu from "./components/ModalMenu.vue";
 import WatchList from "./components/WatchList.vue";
 import Footer from "./components/Footer.vue";
 </script>

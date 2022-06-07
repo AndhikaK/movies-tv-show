@@ -42,13 +42,14 @@ export default {
       return this.store.search.history.length;
     },
     handleInput() {
-      if (!this.history.includes(this.searchValue) && this.searchValue !== "") {
+      if (this.searchValue !== "") {
+        if (!this.history.includes(this.searchValue)) {
+          this.store.addHistory(this.searchValue);
+          this.store.updateSearchQuery(this.searchValue);
+        }
         this.store.toggleSearch();
-        this.store.addHistory(this.searchValue);
-        this.store.updateSearchQuery(this.searchValue);
         router.push({ name: "search" });
       }
-      // this.store.emptySearch();
     },
     removeHistory(history) {
       this.store.removeHistory(history);

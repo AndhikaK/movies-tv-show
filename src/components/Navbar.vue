@@ -17,7 +17,7 @@
     <div class="flex gap-3">
       <i @click="store.toggleSearch()" class='bx bx-search-alt-2 text-3xl hover:text-slate-200'></i>
       <i @click="store.toggleWatchList()" class='bx bxs-bookmarks text-3xl hover:text-slate-200'></i>
-      <i class='bx bx-dots-vertical-rounded md:hidden text-3xl'></i>
+      <i @click="store.toggleMenuModal()" class='bx bx-dots-vertical-rounded md:hidden text-3xl'></i>
     </div>
   </nav>
 </template>
