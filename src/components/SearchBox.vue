@@ -26,6 +26,7 @@
 
 <script>
 import { store } from "../store.js";
+import router from "../router";
 
 export default {
   data() {
@@ -46,12 +47,11 @@ export default {
       ) {
         this.store.toggleSearch();
         this.store.addHistory(this.store.search.query);
+        router.push({ name: "search" });
       }
-      this.store.emptySearch();
+      // this.store.emptySearch();
     },
-    reverseHistory() {},
     removeHistory(history) {
-      //   console.log(history);
       this.store.removeHistory(history);
     },
   },

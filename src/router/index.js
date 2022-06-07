@@ -3,6 +3,8 @@ import HomeView from "../views/HomeView.vue";
 import MoviesView from "../views/MoviesView.vue";
 import TvShowsView from "../views/TvShowsView.vue";
 import MovieDetailView from "../views/MovieDetailView.vue";
+import TvDetailView from "../views/TvDetailView.vue";
+import SearchPageView from "../views/SearchPageView.vue";
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: "/tv-shows",
     name: "tv-shows",
     component: TvShowsView,
+  },
+  {
+    path: "/tv-show/:id",
+    name: "tv-detail",
+    component: TvDetailView,
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: SearchPageView,
   },
 ];
 
