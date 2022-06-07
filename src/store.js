@@ -9,6 +9,14 @@ export const store = reactive({
     query: "",
     history: [],
   },
+  watchList: {
+    isShow: false,
+    list: [],
+  },
+  updateSearchQuery(query) {
+    console.log(query);
+    this.search.query = query;
+  },
   toggleSearch() {
     this.search.isShow = !this.search.isShow;
   },
@@ -25,5 +33,30 @@ export const store = reactive({
       this.search.history.splice(index, 1);
     }
     console.log(this.search.history);
+  },
+  addToWatchList(movie) {
+    this.watchList.list = [...this.watchList.list, movie];
+  },
+  removeWatchList(movie) {
+    const index = this.isWatchListExist(movie);
+    console.log("masuk ke sini gk si");
+
+    if (index > -1) {
+      this.watchList.list.splice(index, 1);
+    }
+  },
+  toggleWatchList() {
+    this.watchList.isShow = !this.watchList.isShow;
+  },
+  isWatchListExist(movie) {
+    const list = this.watchList.list;
+    var i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i] === movie) {
+        return i;
+      }
+    }
+
+    return -1;
   },
 });

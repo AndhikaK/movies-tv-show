@@ -3,7 +3,9 @@
   <div class="relative">
     <Navbar />
     <SearchBox />
+    <WatchList />
     <router-view></router-view>
+    <Footer />
 
   </div>
 </template>
@@ -13,6 +15,8 @@
 import HomeView from "./views/HomeView.vue";
 import Navbar from "./components/Navbar.vue";
 import SearchBox from "./components/SearchBox.vue";
+import WatchList from "./components/WatchList.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <style>
