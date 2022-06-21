@@ -1,7 +1,7 @@
 <template>
   <button @click="toggleDarkMode" class="grid place-items-center">
-    <i v-if="!themeStore.isDark" class='bx bxs-sun text-sky-500 text-xl'></i>
-    <i v-else class='bx bxs-moon text-sky-500 text-xl'></i>
+    <i v-if="!themeStore.isDark" class='bx bxs-sun text-sky-500 lg:text-xl'></i>
+    <i v-else class='bx bxs-moon text-yellow-500 lg:text-xl'></i>
   </button>
 </template>
 
