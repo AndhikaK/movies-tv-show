@@ -10,7 +10,7 @@
           <i @click="toggleOffCanvas" class='bx bx-x text-xl'></i>
           <slot name="header"></slot>
         </div>
-        <div class="flex flex-col gap-4 border-t border-t-slate800/20 mt-5 pt-5">
+        <div class="flex flex-col gap-4 border-t border-t-slate-500/40 mt-5 pt-5">
           <slot name="content"></slot>
         </div>
       </div>

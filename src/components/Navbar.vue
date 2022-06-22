@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full py-2 lg:py-5 px-5 md:px-12 sticky top-0 flex justify-between items-center bg-white dark:bg-slate-800 shadow-md">
+  <nav class="z-50 w-full py-2 lg:py-5 px-5 md:px-12 sticky top-0 flex justify-between items-center bg-white dark:bg-slate-800 shadow-md">
     <div class="block lg:hidden">
       <!-- MENU OFFCANVAS FOR MOBILE -->
       <OffCanvas>
