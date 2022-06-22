@@ -1,10 +1,10 @@
 <template>
   <div :class="{dark : themeStore.isDark}" class="">
-    <div class="grid grid-rows-[auto_1fr_auto] min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+    <div class="relative grid grid-rows-[auto_1fr_auto] min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
       <!-- NAVS -->
       <Navbar />
       <!-- MAIN CONTENT -->
-      <div class="py-2 lg:py-5 px-5 md:px-12">
+      <div class="">
         <router-view></router-view>
       </div>
 

@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import PopularMoviesView from "../views/PopularMoviesView.vue";
 import PopularTvShowsView from "../views/PopularTvShowsView.vue";
 import SearchPageView from "../views/SearchPageView.vue";
+import MovieDetailView from "../views/MovieDetailView.vue";
 
 const routes = [
   {
@@ -15,11 +16,11 @@ const routes = [
     name: "movies",
     component: PopularMoviesView,
   },
-  //   {
-  //     path: "/movie/:id",
-  //     name: "movie-detail",
-  //     component: MovieDetailView,
-  //   },
+  {
+    path: "/movie/:id",
+    name: "movie-detail",
+    component: MovieDetailView,
+  },
   {
     path: "/popular-shows",
     name: "tv-shows",

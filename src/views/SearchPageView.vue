@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-5 py-2 lg:py-5 px-5 md:px-12">
     <!-- Header -->
     <div class="pb-5 flex justify-between">
       <div class="pl-3 md:text-xl font-bold border-l-4 border-l-red-500">Search results for "{{this.$route.query.q}}"</div>

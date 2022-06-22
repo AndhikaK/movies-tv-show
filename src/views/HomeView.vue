@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="py-2 lg:py-5 px-5 md:px-12">
 
     <!-- MOVIES -->
     <div>
