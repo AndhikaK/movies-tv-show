@@ -4,6 +4,7 @@ import PopularMoviesView from "../views/PopularMoviesView.vue";
 import PopularTvShowsView from "../views/PopularTvShowsView.vue";
 import SearchPageView from "../views/SearchPageView.vue";
 import MovieDetailView from "../views/MovieDetailView.vue";
+import TvShowsDetailView from "../views/TvShowsDetailView.vue";
 
 const routes = [
   {
@@ -26,11 +27,11 @@ const routes = [
     name: "tv-shows",
     component: PopularTvShowsView,
   },
-  //   {
-  //     path: "/tv-show/:id",
-  //     name: "tv-detail",
-  //     component: TvDetailView,
-  //   },
+  {
+    path: "/tv-show/:id",
+    name: "tv-detail",
+    component: TvShowsDetailView,
+  },
   {
     path: "/search",
     name: "search",
