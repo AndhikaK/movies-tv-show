@@ -7,13 +7,13 @@
     <template v-slot:header>
       <div class="grid grid-cols-[auto_1fr_auto] gap-3 items-center">
         <i class='bx bx-search md:text-xl'></i>
-        <input v-model="searchQuery" @keypress.enter="addSearchItem(searchQuery)" type="text" class="outline-none place-self-center-start bg-transparent" placeholder="Search movies or TV shows">
+        <input v-model="searchQuery" @keypress.enter="handleSearch(searchQuery)" type="text" class="outline-none place-self-center-start bg-transparent" placeholder="Search movies or TV shows">
       </div>
     </template>
     <template v-slot:content>
       <div v-if="searchList.length > 0">
         <div class="p-5 py-4 font-bold text-left">Recent searches</div>
-        <div class="border-b border-b-slate-500/10">
+        <div class="h-[250px] overflow-y-auto border-b border-b-slate-500/10">
           <div v-for="search in searchList" v-bind:key="search" class="p-5 py-2 text-left grid grid-cols-[1fr_auto] items-center hover:bg-slate-50 dark:hover:bg-slate-700/30 border-t border-t-slate-500/10">
             <div>
               {{ search }}
@@ -43,8 +43,9 @@ export default {
     };
   },
   methods: {
-    addSearchItem(search) {
+    handleSearch(search) {
       this.searchStore.addSearchItem(search);
+      this.$router.replace({ name: "search", query: { q: search } });
     },
     removeSearchItem(search) {
       this.searchStore.removeSearch(search);

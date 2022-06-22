@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import PopularMoviesView from "../views/PopularMoviesView.vue";
 import PopularTvShowsView from "../views/PopularTvShowsView.vue";
+import SearchPageView from "../views/SearchPageView.vue";
 
 const routes = [
   {
@@ -29,11 +30,11 @@ const routes = [
   //     name: "tv-detail",
   //     component: TvDetailView,
   //   },
-  //   {
-  //     path: "/search",
-  //     name: "search",
-  //     component: SearchPageView,
-  //   },
+  {
+    path: "/search",
+    name: "search",
+    component: SearchPageView,
+  },
 ];
 
 const router = createRouter({

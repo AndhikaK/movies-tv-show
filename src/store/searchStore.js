@@ -4,10 +4,12 @@ export const searchStore = reactive({
   searchQuery: "",
   searchList: ["Mimpi", "tak sadar"],
   addSearchItem(search) {
-    let index = this.searchList.indexOf(search);
+    if (search !== "") {
+      let index = this.searchList.indexOf(search);
 
-    if (index === -1) {
-      this.searchList.push(search);
+      if (index === -1) {
+        this.searchList.push(search);
+      }
     }
   },
   removeSearch(search) {

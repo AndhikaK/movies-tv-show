@@ -29,7 +29,6 @@ export default {
       "https://api.themoviedb.org/3/tv/popular?api_key=" + this.apiKey;
 
     axios.get(url).then((response) => {
-      console.log(response.data);
       this.movies = response.data.results;
     });
   },
