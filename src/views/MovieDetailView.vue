@@ -19,6 +19,9 @@
         <div class="mt-5 flex gap-5 items-center">
           <span class="md:text-2xl p-3 bg-slate-800/80 rounded-lg font-bold text-green-500">{{movie.vote_average}}</span>
           {{ movie.vote_count }} votes
+          <div>
+            <button @click="addFavorite('movie')" class="p-2 rounded-md bg-red-500 hover:bg-red-700 text-white">Add to watchlist</button>
+          </div>
         </div>
         <div class="hidden lg:block mt-8">
           Genre:
@@ -54,11 +57,12 @@
 import axios from "axios";
 import dateformat from "dateformat";
 import { apiStore } from "../store/apiStore";
-import { ref } from "@vue/reactivity";
+import { favoriteStore } from "../store/favoriteStore";
 
 export default {
   data() {
     return {
+      favoriteStore,
       apiKey: apiStore.apiKey,
       imgPath: apiStore.imgPath,
       movie: {},
@@ -102,6 +106,9 @@ export default {
       const hour = duration / 60;
       const minute = duration % 60;
       return `${Math.round(hour)} hr ${minute} min`;
+    },
+    addFavorite(type) {
+      this.favoriteStore.addNewFavorite(this.movie, type);
     },
   },
 };

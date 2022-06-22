@@ -19,6 +19,10 @@
         <div class="mt-5 flex gap-5 items-center">
           <span class="md:text-2xl p-3 bg-slate-800/80 rounded-lg font-bold text-green-500">{{movie.vote_average}}</span>
           {{ movie.vote_count }} votes
+          <div>
+            <button v-if="!isFavorited" @click="addFavorite('tv')" class="p-2 rounded-md bg-red-500 hover:bg-red-700 text-white">Add to watchlist </button>
+            <button v-if="isFavorited" @click="addFavorite('tv')" class="p-2 rounded-md bg-red-500 hover:bg-red-700 text-white">Already in favorited </button>
+          </div>
         </div>
         <div class="hidden lg:block mt-8">
           Genre:
@@ -54,14 +58,17 @@
 import axios from "axios";
 import dateformat from "dateformat";
 import { apiStore } from "../store/apiStore";
+import { favoriteStore } from "../store/favoriteStore.js";
 
 export default {
   data() {
     return {
+      favoriteStore,
       apiKey: apiStore.apiKey,
       imgPath: apiStore.imgPath,
       movie: {},
       error: false,
+      isFavorited: null,
     };
   },
   created() {
@@ -100,6 +107,14 @@ export default {
       const hour = duration / 60;
       const minute = duration % 60;
       return `${Math.round(hour)} hr ${minute} min`;
+    },
+    addFavorite(type) {
+      this.favoriteStore.addNewFavorite(this.movie, type);
+    },
+    isShowsExist() {
+      let check = this.favoriteStore.isFavouriteExits(this.movie, "tv");
+      console.log(check);
+      this.isFavorited = check ? true : false;
     },
   },
 };

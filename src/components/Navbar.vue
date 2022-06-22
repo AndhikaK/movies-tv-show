@@ -41,7 +41,7 @@
 
     <div class="flex items-center gap-3  md:gap-5 " :class="{'text-white': isIdParamExists()}">
       <Search />
-      <i class='bx bxs-cart md:text-xl '></i>
+      <Favorites />
       <ToggleDark />
     </div>
   </nav>
@@ -52,9 +52,10 @@ import ToggleDark from "./ToggleDark.vue";
 import OffCanvas from "./OffCanvas.vue";
 import Search from "./Search.vue";
 import Modal from "./Modal.vue";
+import Favorites from "./Favorites.vue";
 
 export default {
-  components: { ToggleDark, Modal, Search, OffCanvas },
+  components: { ToggleDark, Modal, Search, OffCanvas, Favorites },
   data() {
     return {};
   },
