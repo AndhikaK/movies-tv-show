@@ -20,7 +20,9 @@
           <span class="md:text-2xl p-3 bg-slate-800/80 rounded-lg font-bold text-green-500">{{movie.vote_average}}</span>
           {{ movie.vote_count }} votes
           <div>
-            <button @click="addFavorite('movie')" class="p-2 rounded-md bg-red-500 hover:bg-red-700 text-white">Add to watchlist</button>
+            <!-- <button @click="addFavorite('movie')" class="p-2 rounded-md bg-red-500 hover:bg-red-700 text-white">Add to watchlist</button> -->
+            <button v-if="!favoriteStore.isFavouriteExits(movie, 'movie')" @click="addFavorite('movie')" class="p-2 rounded-md bg-red-500 hover:bg-red-700 text-white">Add to watchlist </button>
+            <button v-if="favoriteStore.isFavouriteExits(movie, 'movie')" @click="removeFavorite('movie')" class="p-2 rounded-md bg-red-800 hover:bg-red-500 text-white">Already in favorite </button>
           </div>
         </div>
         <div class="hidden lg:block mt-8">
@@ -109,6 +111,9 @@ export default {
     },
     addFavorite(type) {
       this.favoriteStore.addNewFavorite(this.movie, type);
+    },
+    removeFavorite(type) {
+      this.favoriteStore.removeFavorite(this.movie.id, type);
     },
   },
 };

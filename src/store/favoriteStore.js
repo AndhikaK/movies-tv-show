@@ -49,9 +49,7 @@ export const favoriteStore = reactive({
     }
     if (type == "movie") {
       const { length } = this.movieList;
-      const id = length + 1;
-      const found = this.movieList.some((el) => el.id === movie.id);
-      return this.movieList.push(movie);
+      return this.movieList.some((el) => el.id === movie.id);
     }
   },
 });
